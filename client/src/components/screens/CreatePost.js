@@ -31,7 +31,7 @@ const CretePost = ()=>{
                history.push('/')
            }
         }).catch(err=>{
-            console.log(err)
+            console.log("rafi",err)
         })
     }
     },[url])
@@ -40,8 +40,11 @@ const CretePost = ()=>{
        const data = new FormData()
        data.append("file",image)
        data.append("upload_preset","new-insta")
-       data.append("cloud_name","cnq")
-       fetch("https://api.cloudinary.com/v1_1/cnq/image/upload",{
+       data.append("api_key", "775989347267792"); 
+       data.append("cloud_name","dib8np35k")
+       console.log(data);
+       
+       fetch("https://api.cloudinary.com/v1_1/dib8np35k/image/upload",{
            method:"post",
            body:data
        })
@@ -50,7 +53,7 @@ const CretePost = ()=>{
           setUrl(data.url)
        })
        .catch(err=>{
-           console.log(err)
+           console.log("rafi",err)
        })
 
     

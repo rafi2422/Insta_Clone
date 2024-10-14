@@ -35,6 +35,8 @@ router.get('/getsubpost',requireLogin,(req,res)=>{
 
 router.post('/createpost',requireLogin,(req,res)=>{
     const {title,body,pic} = req.body 
+    console.log("rafi");
+    
     if(!title || !body || !pic){
       return  res.status(422).json({error:"Plase add all the fields"})
     }
@@ -46,10 +48,11 @@ router.post('/createpost',requireLogin,(req,res)=>{
         postedBy:req.user
     })
     post.save().then(result=>{
-        res.json({post:result})
+         return res.json({post:result})
     })
     .catch(err=>{
         console.log(err)
+        return res.json({post:err})
     })
 })
 
